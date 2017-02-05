@@ -21,6 +21,8 @@ Just run this in terminal:
 
 ### Under the hood
 
+To create the vectors dictionary it uses [TfIdfVectorizer](http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) which uses inverted frequencies table method to get the weights from the words and bigrams we give, more on tf-idf [here](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
+
 To perform the classification it uses [SGD](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html) classifier(also here is [wiki](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)) with [hinge](https://en.wikipedia.org/wiki/Hinge_loss) as a loss function, aka [SVM](https://en.wikipedia.org/wiki/Support_vector_machine), which shows the best results in sentiment analysis afaik, but has more tuning options than [LinearSVC](http://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) 
 
 _Note_: the model's hyperparameters are chosen by sklearn's [GridSearchCV](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) (more on this [here](https://en.wikipedia.org/wiki/Hyperparameter_optimization)) and those are tuned to match the best [F1 score](https://en.wikipedia.org/wiki/F1_score)
