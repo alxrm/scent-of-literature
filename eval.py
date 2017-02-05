@@ -19,7 +19,7 @@ def eval_classifier(is_test_run=False, train_file='train.tsv', test_file='data.t
     # vct stands for 'vectorizer', which is an utility class to transform word into table of frequencies
     # clf stands for 'classifier', which is an utility class to perform a stochastic gradient descent classification
     # best hyperparameters has been chosen by grid search cross-validation based on f1 score
-    classifier = Pipeline([('vct', TfidfVectorizer(use_idf=True, sublinear_tf=True, ngram_range=(1, 2), max_df=0.6)),
+    classifier = Pipeline([('vct', TfidfVectorizer(use_idf=True, sublinear_tf=True, ngram_range=(1, 2), max_df=0.8)),
                            ('clf', SGDClassifier(average=True, alpha=1e-4, epsilon=1e-8, n_iter=10, random_state=42))])
 
     classifier = classifier.fit(train_text, train_labels)
